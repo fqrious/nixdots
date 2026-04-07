@@ -1,0 +1,81 @@
+{ pkgs }:
+
+with pkgs; [
+  # General packages for development and system management
+  alacritty
+  bat
+  btop
+  coreutils
+  killall
+  openssh
+  sqlite
+  wget
+  zip
+
+  # Encryption and security tools
+  age
+  age-plugin-yubikey
+  gnupg
+  libfido2
+
+  # Cloud-related tools and SDKs
+  docker
+  docker-compose
+
+  # Media-related packages
+  dejavu_fonts
+  ffmpeg
+  fd
+  font-awesome
+  hack-font
+  noto-fonts
+  noto-fonts-color-emoji
+  meslo-lgs-nf
+
+  # Node.js development tools
+  nodejs_24
+
+  # Text and terminal utilities
+  htop
+  jetbrains-mono
+  jq
+  ripgrep
+  tree
+  tmux
+  unrar
+  unzip
+  
+  # Development tools
+  curl
+  gh
+  terraform
+  kubectl
+  awscli2
+  lazygit
+  fzf
+  direnv
+  
+  # Programming languages and runtimes
+  go
+  rustc
+  cargo
+  openjdk
+
+  # Python packages
+  python311
+  python311Packages.pip
+  uv
+  virtualenv
+  brotli
+
+  # other utilities
+  rename
+  neofetch
+
+  # Nix packages for development and system management
+  nixfmt
+  
+  # build tools
+  llvmPackages.clang
+  llvmPackages.llvm
+]
