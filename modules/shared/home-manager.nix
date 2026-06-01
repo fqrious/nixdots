@@ -259,12 +259,7 @@ let name = "Fadl";
     enable = true;
     enableDefaultConfig = false;
     includes = [
-      (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
-        "/home/${user}/.ssh/config_external"
-      )
-      (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
-        "/Users/${user}/.ssh/config_external"
-      )
+      "~/.ssh/config_external"
     ];
     matchBlocks = {
       "*" = {
@@ -274,25 +269,11 @@ let name = "Fadl";
       };
       "github.com" = {
         identitiesOnly = true;
-        identityFile = [
-          (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
-            "/home/${user}/.ssh/id_github"
-          )
-          (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
-            "/Users/${user}/.ssh/id_github"
-          )
-        ];
+        identityFile = "~/.ssh/github_rsa";
       };
       "gitlab.com" = {
         identitiesOnly = true;
-        identityFile = [
-          (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
-            "/home/${user}/.ssh/id_gitlab"
-          )
-          (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
-            "/Users/${user}/.ssh/id_gitlab"
-          )
-        ];
+        identityFile = "~/.ssh/gitlab_rsa";
       };
     };
   };
