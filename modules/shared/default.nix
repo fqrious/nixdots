@@ -18,6 +18,7 @@
                       pathExists (path + ("/" + n + "/default.nix")))
                   (attrNames (readDir path)));
   };
+  # nix.settings.auto-optimise-store = true;
   nix.enable = false; # Disable Nix on Darwin, as we will use nix-homebrew instead
   nix.gc.automatic = lib.mkForce false; # Disable automatic garbage collection, as we will manage it manually
 }

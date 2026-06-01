@@ -47,6 +47,10 @@ let name = "Fadl";
       # Always color ls and group directories
       alias ls='ls --color=auto'
 
+      # setup libraries for development
+      export RUSTFLAGS="-L/opt/local/lib/ -L$HOME/.nix-profile/lib/"
+      export LDFLAGS="-L/opt/local/lib/ -L$HOME/.nix-profile/lib/"
+
     '';
   };
 
@@ -276,6 +280,17 @@ let name = "Fadl";
           )
           (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
             "/Users/${user}/.ssh/id_github"
+          )
+        ];
+      };
+      "gitlab.com" = {
+        identitiesOnly = true;
+        identityFile = [
+          (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
+            "/home/${user}/.ssh/id_gitlab"
+          )
+          (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
+            "/Users/${user}/.ssh/id_gitlab"
           )
         ];
       };

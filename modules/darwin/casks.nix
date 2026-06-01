@@ -25,6 +25,7 @@ _:
   "syncthing-app"
   "1password"
   # "rectangle"
+  "android-platform-tools"  # android
 
   # Entertainment Tools - Examples (uncomment as needed)
   # "spotify"

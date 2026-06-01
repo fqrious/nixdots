@@ -1,14 +1,14 @@
-{ agenix, config, pkgs, ... }:
+{ agenix, config, pkgs, lib, ... }:
 
 let user = "lullah"; home = "/Users/${user}"; in
 
 {
 
-  imports = [
+  imports = lib.unique [
     ../../modules/darwin/secrets.nix
     ../../modules/darwin/home-manager.nix
     ../../modules/shared
-     agenix.darwinModules.default
+    agenix.darwinModules.default
   ];
 
   

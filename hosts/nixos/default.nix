@@ -1,9 +1,9 @@
-{ config, inputs, pkgs, agenix, ... }:
+{ config, inputs, pkgs, agenix, lib, ... }:
 
 let user = "lullah";
     keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOk8iAnIaa1deoc7jw8YACPNVka1ZFJxhnU4G74TmS+p" ]; in
 {
-  imports = [
+  imports = lib.unique [
     ../../modules/nixos/secrets.nix
     ../../modules/nixos/disk-config.nix
     ../../modules/shared
@@ -218,6 +218,8 @@ let user = "lullah";
 
     gvfs.enable = true; # Mount, trash, and other functionalities
     tumbler.enable = true; # Thumbnail support for images
+
+  };
 
   # Enable CUPS to print documents
   # services.printing.enable = true;

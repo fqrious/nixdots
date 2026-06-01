@@ -44,6 +44,7 @@ with pkgs; [
   tmux
   unrar
   unzip
+  moreutils
   
   # Development tools
   curl
@@ -78,4 +79,5 @@ with pkgs; [
   # build tools
   llvmPackages.clang
   llvmPackages.llvm
+  protobuf
 ]
