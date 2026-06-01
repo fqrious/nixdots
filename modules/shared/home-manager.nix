@@ -64,17 +64,25 @@ let name = "Fadl";
     settings.user = {
       name = name;
       email = email;
+      signingKey = "~/.ssh/git_key.pub";
 
       # extra settings
 
       init.defaultBranch = "main";
       core = {
-	    editor = "vim";
+	      editor = "vim";
         autocrlf = "input";
       };
       commit.gpgsign = true;
       pull.rebase = true;
       rebase.autoStash = true;
+    };
+    settings.gpg = {
+      enable = true;
+      format = "ssh";
+    };
+    settings."gpg \"ssh\"" = {
+      allowedSignersFile = "~/.ssh/allowed_signers";
     };
   };
 
